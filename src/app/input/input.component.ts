@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 // import { FormGroup, FormControl } from "@angular/forms"; // replaced by formBuilder
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "app-input",
@@ -8,16 +8,18 @@ import { FormBuilder } from "@angular/forms";
   styleUrls: ["./input.component.css"]
 })
 export class InputComponent implements OnInit {
+  dieCastInputForm: FormGroup;
+
   constructor(private frmBldr: FormBuilder) {}
 
-  ngOnInit() {}
-
-  dieCastInputForm = this.frmBldr.group({
-    releaseYear: [""],
-    name: [""],
-    brand: [""],
-    manufacturer: [""]
-  });
+  ngOnInit() {
+    this.dieCastInputForm = this.frmBldr.group({
+      releaseYear: [""],
+      name: [""],
+      brand: [""],
+      manufacturer: [""]
+    });
+  }
 
   // added to constructor parameters and replaced by formBuilder
 
